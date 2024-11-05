@@ -1,7 +1,6 @@
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Contact } from '../models/contact.model';
 import { AsyncPipe } from '@angular/common';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { GameFormComponent } from './features/games/components/game-form/game-form.component';
@@ -32,12 +31,6 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'contactly.web';
+  title = 'gamely.web';
   http = inject(HttpClient);
-
-  contacts$ = this.getContacts();
-
-  private getContacts(): Observable<Contact[]> {
-    return this.http.get<Contact[]>('https://localhost:7091/api/Contacts');
-  }
 }
