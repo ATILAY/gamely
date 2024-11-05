@@ -1,0 +1,64 @@
+src/
+├── app/
+│   ├── core/                       # Core services and utility functions used throughout the app
+│   │   ├── services/               # Shared services across multiple modules
+│   │   │   ├── api/                # API services to interact with backend
+│   │   │   │   ├── game.service.ts
+│   │   │   │   ├── platform.service.ts
+│   │   │   │   ├── publisher.service.ts
+│   │   │   │   └── review.service.ts
+│   │   │   ├── auth.service.ts     # Authentication service if required
+│   │   │   └── notification.service.ts # Service for user notifications
+│   │   ├── guards/                 # Route guards (e.g., AuthGuard, RoleGuard)
+│   │   ├── interceptors/           # HTTP interceptors for authentication, error handling
+│   │   └── models/                 # Shared TypeScript interfaces/models
+│   │       ├── game.model.ts
+│   │       ├── platform.model.ts
+│   │       ├── publisher.model.ts
+│   │       └── review.model.ts
+│   ├── shared/                     # Reusable components, directives, and pipes
+│   │   ├── components/             # UI components used across the app
+│   │   │   ├── star-rating/        # Example component for star ratings
+│   │   │   └── pagination/         # Example component for pagination
+│   │   ├── directives/             # Custom directives
+│   │   └── pipes/                  # Custom pipes (e.g., date formatting, text truncation)
+│   ├── features/                   # Feature modules for each main entity
+│   │   ├── games/                  # Game-specific components and services
+│   │   │   ├── components/         # Game components (list, detail, form)
+│   │   │   │   ├── game-list/      # Component for listing games
+│   │   │   │   ├── game-detail/    # Component for viewing game details
+│   │   │   │   └── game-form/      # Component for adding/editing a game
+│   │   │   ├── game-routing.module.ts # Routes specific to games
+│   │   │   └── game.module.ts
+│   │   ├── publishers/             # Publisher-specific components and services
+│   │   │   ├── components/
+│   │   │   │   ├── publisher-list/
+│   │   │   │   ├── publisher-detail/
+│   │   │   │   └── publisher-form/
+│   │   │   ├── publisher-routing.module.ts
+│   │   │   └── publisher.module.ts
+│   │   ├── reviews/                # Review-specific components and services
+│   │   │   ├── components/
+│   │   │   │   ├── review-list/
+│   │   │   │   ├── review-detail/
+│   │   │   │   └── review-form/
+│   │   │   ├── review-routing.module.ts
+│   │   │   └── review.module.ts
+│   │   ├── platforms/              # Platform-specific components and services
+│   │   │   ├── components/
+│   │   │   │   ├── platform-list/
+│   │   │   │   ├── platform-detail/
+│   │   │   │   └── platform-form/
+│   │   │   ├── platform-routing.module.ts
+│   │   │   └── platform.module.ts
+│   ├── app-routing.module.ts       # Main routing module
+│   ├── app.component.html          # Root component template
+│   ├── app.component.ts            # Root component class
+│   └── app.module.ts               # Main application module
+├── assets/                         # Static assets (images, icons, styles)
+│   ├── images/
+│   └── styles/
+├── environments/                   # Environment-specific configurations
+│   ├── environment.ts              # Development environment
+│   └── environment.prod.ts         # Production environment
+└── main.ts                         # Main entry point for Angular app

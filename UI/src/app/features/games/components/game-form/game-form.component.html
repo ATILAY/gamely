@@ -1,0 +1,119 @@
+<div class="wrapper mt-2 ml-2">
+  <button type="button" class="btn btn-primary">
+    <a routerLink="/game-list">Go back to the Game List</a>
+  </button>
+
+  <p class="h1">game-form works!</p>
+
+  <!-- form below -->
+  <div class="container">
+    <h2>{{ isEditing ? "Edit Game" : "Add Game" }}</h2>
+    <form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          formControlName="title"
+          placeholder="Enter game title"
+        />
+        <div
+          *ngIf="
+            gameForm.get('title')?.invalid &&
+            (gameForm.get('title')?.touched || gameForm.get('title')?.dirty)
+          "
+          class="text-danger"
+        >
+          Title is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          formControlName="description"
+          rows="3"
+          placeholder="Enter game description"
+        ></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="releaseDate" class="form-label">Release Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="releaseDate"
+          formControlName="releaseDate"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="publisherId" class="form-label">Publisher ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="publisherId"
+          formControlName="publisherId"
+          placeholder="Enter publisher ID or Name"
+          [disabled]="true"
+        />
+        <div
+          *ngIf="
+            gameForm.get('publisherId')?.invalid &&
+            (gameForm.get('publisherId')?.touched ||
+              gameForm.get('publisherId')?.dirty)
+          "
+          class="text-danger"
+        >
+          publisher Id or publisher name is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="genre"
+          formControlName="genre"
+          placeholder="Enter game genre"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="averageRating" class="form-label">Average Rating</label>
+        <input
+          type="number"
+          class="form-control"
+          id="averageRating"
+          formControlName="averageRating"
+          placeholder="Enter average rating"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="coverImageUrl" class="form-label">Cover Image URL</label>
+        <input
+          type="text"
+          class="form-control"
+          id="coverImageUrl"
+          formControlName="coverImageUrl"
+          placeholder="Enter cover image URL"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="
+          gameForm.get('title')?.invalid || gameForm.get('publisherId')?.invalid
+        "
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

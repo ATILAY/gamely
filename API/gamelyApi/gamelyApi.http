@@ -1,0 +1,6 @@
+@gamelyApi_HostAddress = http://localhost:5070
+
+GET {{gamelyApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
